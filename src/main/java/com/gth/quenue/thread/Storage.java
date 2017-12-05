@@ -3,8 +3,6 @@ package com.gth.quenue.thread;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
-import com.gth.demo.ProducerConsumer.Product;
-
 /**
  * Filename:    Storage.java  
  * Description: 用户存放生产出来的数据
@@ -29,16 +27,16 @@ public class Storage {
     /**
      * @Description: 
      * @author 关体华
-     * @param p
+     * @param product
      * @throws InterruptedException 
      * @date: 2017-12-4 上午9:06:36
      */
-    public void push(String p) throws InterruptedException {
+    public void push(String product) throws InterruptedException {
         //校验主仓库和临时仓库中是否存在相同的数据，有则舍弃
-        if (queues.contains(p) && tempQueues.contains(p)) {
+        if (queues.contains(product) && tempQueues.contains(product)) {
             return;
         }
-        queues.put(p);
+        queues.put(product);
     }
 
     /**
